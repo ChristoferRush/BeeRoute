@@ -8,7 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-@NoArgsConstructor
+//@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -30,4 +30,11 @@ public class Role {
     @NotNull
     @Column(name = "permission")
     private Permission permission;
+
+    public Role(){}
+
+    public Role(@NotNull String name, @NotNull Permission permission) {
+        this.name = name;
+        this.permission = permission;
+    }
 }
