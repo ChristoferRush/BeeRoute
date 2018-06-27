@@ -41,6 +41,8 @@ dependencies {
 
     compile('org.hibernate:hibernate-core')
 
+    compile group: 'org.mapstruct', name: 'mapstruct-jdk8', version: '1.2.0.Final'
+
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('org.postgresql:postgresql')
 

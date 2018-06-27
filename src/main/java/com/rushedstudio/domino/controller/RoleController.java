@@ -27,12 +27,6 @@ public class RoleController {
         roleRepository.save(new Role("rola", Permission.USER));
     }
 
-    @GetMapping("/{roleId}")
-    public ResponseEntity<Role> findRole(@PathVariable Long roleId){
-        Role role = roleRepository.getOne(roleId);
-        return ResponseEntity.ok(role);
-    }
-
     public void validateRoleId(Long roleId){
         roleRepository.findById(roleId).orElseThrow(
                 () -> new RoleNotFoundException(roleId)

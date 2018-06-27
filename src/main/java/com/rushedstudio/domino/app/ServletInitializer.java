@@ -1,4 +1,4 @@
-package com.rushedstudio.domino;
+package com.rushedstudio.domino.app;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(DominoApplication.class);
+        return application.sources(Application.class);
     }
 
 }
