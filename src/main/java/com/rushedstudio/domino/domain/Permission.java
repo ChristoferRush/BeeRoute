@@ -1,4 +1,4 @@
-package com.rushedstudio.domino.model;
+package com.rushedstudio.domino.domain;
 
 public enum Permission {
 

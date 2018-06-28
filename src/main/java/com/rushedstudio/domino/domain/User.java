@@ -1,5 +1,6 @@
-package com.rushedstudio.domino.model;
+package com.rushedstudio.domino.domain;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,9 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "usr_user")
 public class User {
