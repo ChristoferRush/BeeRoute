@@ -29,6 +29,7 @@ configurations {
 }
 
 dependencies {
+    compile('org.springframework.boot:spring-boot')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-mail')
@@ -40,6 +41,8 @@ dependencies {
     compile('com.google.code.gson:gson')
 
     compile('org.hibernate:hibernate-core')
+    compile('org.hibernate.validator:hibernate-validator-annotation-processor')
+    compile('org.hibernate:hibernate-entitymanager')
 
     compile group: 'org.mapstruct', name: 'mapstruct-jdk8', version: '1.2.0.Final'
 
