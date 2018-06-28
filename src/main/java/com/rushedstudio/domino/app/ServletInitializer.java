@@ -1,5 +1,6 @@
 package com.rushedstudio.domino.app;
 
+import com.rushedstudio.domino.Application;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 

@@ -1,35 +1,32 @@
 package com.rushedstudio.domino.controller;
 
-import com.rushedstudio.domino.exception.RoleNotFoundException;
-import com.rushedstudio.domino.model.Permission;
-import com.rushedstudio.domino.model.Role;
-import com.rushedstudio.domino.repository.RoleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.rushedstudio.domino.api.model.RoleDTO;
+import com.rushedstudio.domino.api.model.RoleListDTO;
+import com.rushedstudio.domino.service.RoleService;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/role")
+@RequestMapping(value = RoleController.BASE_URL)
 public class RoleController {
 
-    private final RoleRepository roleRepository;
+    static final String BASE_URL = "/role";
 
-    @Autowired
-    public RoleController(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
+    private RoleService roleService;
+
+    public RoleController(RoleService roleService) {
+        this.roleService = roleService;
     }
 
-    @GetMapping
-    public void add(){
-        roleRepository.save(new Role("rola", Permission.USER));
+    @GetMapping(value = "/all")
+    @ResponseStatus(HttpStatus.OK)
+    public RoleListDTO getAllRoles(){
+        return roleService.getAllRoles();
     }
 
-    public void validateRoleId(Long roleId){
-        roleRepository.findById(roleId).orElseThrow(
-                () -> new RoleNotFoundException(roleId)
-        );
+    @GetMapping(value = "/{roleId}")
+    @ResponseStatus(HttpStatus.OK)
+    public RoleDTO getRoleById(@PathVariable Long roleId){
+        return roleService.getRoleById(roleId);
     }
 }
