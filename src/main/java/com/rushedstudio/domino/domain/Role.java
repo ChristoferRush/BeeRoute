@@ -8,8 +8,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
+/*
+@@TODO "lombok doesn't work right now need to use getter/setter/constructor"
+ */
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Data
+//@Data
 @Entity
 @Table(name = "usr_role")
 public class Role {
@@ -30,4 +33,45 @@ public class Role {
     @NotNull
     @Column(name = "permission")
     private Permission permission;
+
+    public Role() {
+    }
+
+    public Role(@NotNull String name, Set<User> users, @NotNull Permission permission) {
+        this.name = name;
+        this.users = users;
+        this.permission = permission;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public Permission getPermission() {
+        return permission;
+    }
+
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
 }
