@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Set;
+import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface RoleMapper {
@@ -19,7 +19,7 @@ public interface RoleMapper {
     @Mapping(source = "users", target = "users")
     RoleDTO roleToRoleDTO(Role role);
 
-    Set<RoleDTO> roleListToRoleDTOList(Set<Role> roles);
+    List<RoleDTO> roleListToRoleDTOList(List<Role> roles);
 
     UserDTO userToUserDTO(User user);
 }

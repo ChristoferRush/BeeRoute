@@ -1,7 +1,9 @@
 package com.rushedstudio.domino.api.model;
 
 import com.rushedstudio.domino.domain.Role;
+import lombok.Data;
 
+@Data
 public class UserDTO {
 
     private Long id;
