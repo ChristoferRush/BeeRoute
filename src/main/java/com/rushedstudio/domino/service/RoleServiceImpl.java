@@ -43,14 +43,7 @@ public class RoleServiceImpl implements RoleService {
         RoleListDTO result = new RoleListDTO();
         List<RoleDTO> roles = new ArrayList<>();
         List<Role> rolesToMap = roleRepository.findAllByPermission(Permission.valueOf(permission.toUpperCase()));
-        for (Role role : rolesToMap){
-
-
-            roles.add(roleMapper.roleToRoleDTO(role));
-            if (roles.isEmpty()){
-                throw new RoleNotFoundException(Permission.valueOf(permission.toUpperCase()));
-            }
-        }
+        roles = RoleMapper.INSTANCE.roleListToRoleDTOList(rolesToMap);
         result.setRoles(roles);
         return result;
     }
