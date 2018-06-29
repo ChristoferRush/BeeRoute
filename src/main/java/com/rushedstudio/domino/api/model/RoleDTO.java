@@ -3,13 +3,13 @@ package com.rushedstudio.domino.api.model;
 import com.rushedstudio.domino.domain.Permission;
 import lombok.Data;
 
-import java.util.List;
+import java.util.Set;
 
 @Data
 public class RoleDTO {
 
     private Long id;
     private String name;
-    private List<UserDTO> users;
+    private Set<UserDTO> users;
     private Permission permission;
 }
