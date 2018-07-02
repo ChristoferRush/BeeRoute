@@ -2,23 +2,22 @@ package com.rushedstudio.domino.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
+import java.util.List;
 
 /*
 @@TODO "lombok doesn't work right now need to use getter/setter/constructor"
  */
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//@Data
 @Entity
 @Table(name = "usr_role")
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "role_sequence", sequenceName = "seq_role", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_sequence")
     @Column(name = "id_role")
     private Long id;
 
@@ -27,19 +26,17 @@ public class Role {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
-    private Set<User> users;
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<User> users;
 
-    @NotNull
-    @Column(name = "permission")
+    @ManyToOne
     private Permission permission;
 
     public Role() {
     }
 
-    public Role(@NotNull String name, Set<User> users, @NotNull Permission permission) {
+    public Role(@NotNull String name, @NotNull Permission permission) {
         this.name = name;
-        this.users = users;
         this.permission = permission;
     }
 
@@ -59,11 +56,11 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 

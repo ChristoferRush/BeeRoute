@@ -12,5 +12,7 @@ public interface RoleRepository extends JpaRepository<Role, Long> {
 
     List<Role> findAllByPermission(Permission permission);
 
+    List<Role> findAllByPermissionName(String permissionName);
+
     Role findRoleByName(String name);
 }

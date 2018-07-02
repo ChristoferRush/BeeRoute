@@ -3,7 +3,6 @@ package com.rushedstudio.domino.controller;
 import com.rushedstudio.domino.api.model.RoleDTO;
 import com.rushedstudio.domino.api.model.RoleListDTO;
 import com.rushedstudio.domino.service.RoleServiceImpl;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,10 +26,10 @@ public class RoleController {
         return roleService.getAllRoles();
     }
 
-    @GetMapping(value = "/permission:{permission}")
+    @GetMapping(value = "/permission:{permissionName}")
     @ResponseStatus(HttpStatus.OK)
-    public RoleListDTO getAllRolesByPermission(@PathVariable String permission){
-        return roleService.getRolesByPermission(permission);
+    public RoleListDTO getAllRolesByPermission(@PathVariable String permissionName){
+        return roleService.getRolesByPermissionName(permissionName);
     }
 
     @GetMapping(value = "/id:{roleId}")

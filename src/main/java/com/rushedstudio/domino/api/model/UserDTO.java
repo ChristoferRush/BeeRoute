@@ -1,5 +1,6 @@
 package com.rushedstudio.domino.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.rushedstudio.domino.domain.Role;
 import lombok.Data;
 
@@ -12,5 +13,6 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String email;
+    @JsonIgnoreProperties("users")
     private Role role;
 }

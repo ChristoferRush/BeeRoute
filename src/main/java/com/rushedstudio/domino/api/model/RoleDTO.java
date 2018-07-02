@@ -1,6 +1,7 @@
 package com.rushedstudio.domino.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.rushedstudio.domino.domain.Permission;
 import lombok.Data;
 
@@ -13,5 +14,6 @@ public class RoleDTO {
     private String name;
     @JsonIgnore
     private List<UserDTO> users;
+    @JsonIgnoreProperties("roles")
     private Permission permission;
 }

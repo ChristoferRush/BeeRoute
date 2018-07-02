@@ -31,20 +31,27 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public RoleListDTO getAllRoles() {
         RoleListDTO dto = new RoleListDTO();
-        dto.setRoles(roleRepository.findAll()
-                .stream()
-                .map(roleMapper::roleToRoleDTO)
-                .collect(Collectors.toList()));
+        List<Role> rolesToMap = roleRepository.findAll();
+        rolesToMap.forEach(role -> System.out.println(role.toString()));
+        List<RoleDTO> roleListDTOS = RoleMapper.INSTANCE.roleListToRoleDTOList(rolesToMap);
+        dto.setRoles(roleListDTOS);
         return dto;
     }
 
     @Override
-    public RoleListDTO getRolesByPermission(String permission) throws RoleNotFoundException {
+    public RoleListDTO getRolesByPermission(Permission permission) throws RoleNotFoundException {
         RoleListDTO result = new RoleListDTO();
-        List<RoleDTO> roles = new ArrayList<>();
-        List<Role> rolesToMap = roleRepository.findAllByPermission(Permission.valueOf(permission.toUpperCase()));
+        List<RoleDTO> roles;
+        List<Role> rolesToMap = roleRepository.findAllByPermission(permission);
         roles = RoleMapper.INSTANCE.roleListToRoleDTOList(rolesToMap);
         result.setRoles(roles);
+        return result;
+    }
+
+    @Override
+    public RoleListDTO getRolesByPermissionName(String permissionName) {
+        RoleListDTO result = new RoleListDTO();
+        result.setRoles(RoleMapper.INSTANCE.roleListToRoleDTOList(roleRepository.findAllByPermissionName(permissionName)));
         return result;
     }
 

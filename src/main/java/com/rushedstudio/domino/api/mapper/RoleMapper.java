@@ -22,4 +22,6 @@ public interface RoleMapper {
     List<RoleDTO> roleListToRoleDTOList(List<Role> roles);
 
     UserDTO userToUserDTO(User user);
+
+    List<UserDTO> userListToUserDTOList(List<User> users);
 }

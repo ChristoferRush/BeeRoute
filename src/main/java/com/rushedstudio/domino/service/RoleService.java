@@ -2,6 +2,7 @@ package com.rushedstudio.domino.service;
 
 import com.rushedstudio.domino.api.model.RoleDTO;
 import com.rushedstudio.domino.api.model.RoleListDTO;
+import com.rushedstudio.domino.domain.Permission;
 
 public interface RoleService {
 
@@ -9,7 +10,9 @@ public interface RoleService {
 
     RoleListDTO getAllRoles();
 
-    RoleListDTO getRolesByPermission(String permission);
+    RoleListDTO getRolesByPermission(Permission permission);
+
+    RoleListDTO getRolesByPermissionName(String permissionName);
 
     RoleDTO getRoleById(Long roleId);
 
