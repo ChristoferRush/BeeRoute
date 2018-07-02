@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class RoleNotFoundException extends RuntimeException {
 
     public RoleNotFoundException(Long id){
-        super("Could not find role " + id);
+        super("Could not find role \'" + id + "\'");
     }
 
     public RoleNotFoundException(String name){
-        super("Could not find role with name " + name);
+        super("Could not find role with name \'" + name + "\'");
     }
 
     public RoleNotFoundException(Permission permission){
-        super("Could not find role with permission " + permission.toString());
+        super("Could not find role with permission \'" + permission.getName() + "\'");
     }
 }

@@ -4,15 +4,10 @@ import com.rushedstudio.domino.api.mapper.RoleMapper;
 import com.rushedstudio.domino.api.model.RoleDTO;
 import com.rushedstudio.domino.api.model.RoleListDTO;
 import com.rushedstudio.domino.domain.Permission;
-import com.rushedstudio.domino.domain.Role;
 import com.rushedstudio.domino.exception.RoleNotFoundException;
 import com.rushedstudio.domino.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -37,6 +32,9 @@ public class RoleServiceImpl implements RoleService {
     public RoleListDTO getRolesByPermission(Permission permission) throws RoleNotFoundException {
         RoleListDTO result = new RoleListDTO();
         result.setRoles(RoleMapper.INSTANCE.roleListToRoleDTOList(roleRepository.findAllByPermission(permission)));
+        if (result.getRoles().isEmpty()){
+            throw new RoleNotFoundException(permission);
+        }
         return result;
     }
 
@@ -44,17 +42,28 @@ public class RoleServiceImpl implements RoleService {
     public RoleListDTO getRolesByPermissionName(String permissionName) {
         RoleListDTO result = new RoleListDTO();
         result.setRoles(RoleMapper.INSTANCE.roleListToRoleDTOList(roleRepository.findAllByPermissionName(permissionName)));
+        if (result.getRoles().isEmpty()){
+            throw new RoleNotFoundException(new Permission(permissionName));
+        }
         return result;
     }
 
     @Override
-    public RoleDTO getRoleById(Long roleId) {
-        return RoleMapper.INSTANCE.roleToRoleDTO(roleRepository.getOne(roleId));
+    public RoleDTO getRoleById(Long roleId) throws RoleNotFoundException {
+        RoleDTO dto = RoleMapper.INSTANCE.roleToRoleDTO(roleRepository.getOne(roleId));
+        if (dto == null) {
+            throw new RoleNotFoundException(roleId);
+        }
+        return dto;
     }
 
     @Override
-    public RoleDTO getRoleByName(String roleName) {
-        return RoleMapper.INSTANCE.roleToRoleDTO(roleRepository.findRoleByName(roleName));
+    public RoleDTO getRoleByName(String roleName) throws RoleNotFoundException {
+        RoleDTO dto = RoleMapper.INSTANCE.roleToRoleDTO(roleRepository.findRoleByName(roleName));
+        if (dto == null){
+            throw new RoleNotFoundException(roleName);
+        }
+        return dto;
     }
 
     // delete

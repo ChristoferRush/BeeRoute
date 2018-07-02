@@ -3,12 +3,9 @@ package com.rushedstudio.domino.service;
 import com.rushedstudio.domino.api.mapper.PermissionMapper;
 import com.rushedstudio.domino.api.model.PermissionDTO;
 import com.rushedstudio.domino.api.model.PermissionListDTO;
-import com.rushedstudio.domino.domain.Permission;
 import com.rushedstudio.domino.repository.PermissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class PermissionServiceImpl implements PermissionService {

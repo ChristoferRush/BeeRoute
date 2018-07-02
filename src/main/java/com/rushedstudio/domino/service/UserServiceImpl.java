@@ -7,8 +7,6 @@ import com.rushedstudio.domino.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.stream.Collectors;
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -25,11 +23,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserListDTO getAllUsers() {
         UserListDTO dto = new UserListDTO();
-        dto.setUserDTOList(userRepository.findAll()
-                .stream()
-                .map(userMapper::userToUserDTO)
-                .collect(Collectors.toList())
-        );
+        dto.setUserDTOList(UserMapper.INSTANCE.userListToUserDTOList(userRepository.findAll()));
         return dto;
     }
 
