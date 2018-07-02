@@ -2,6 +2,7 @@ package com.rushedstudio.domino.service;
 
 import com.rushedstudio.domino.api.model.UserDTO;
 import com.rushedstudio.domino.api.model.UserListDTO;
+import com.rushedstudio.domino.domain.User;
 
 public interface UserService {
 
@@ -16,4 +17,6 @@ public interface UserService {
     // delete
 
     void deleteUserById(Long userId);
+
+    // ----------------------------
 }

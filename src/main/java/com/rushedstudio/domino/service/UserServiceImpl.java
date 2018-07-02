@@ -3,6 +3,7 @@ package com.rushedstudio.domino.service;
 import com.rushedstudio.domino.api.mapper.UserMapper;
 import com.rushedstudio.domino.api.model.UserDTO;
 import com.rushedstudio.domino.api.model.UserListDTO;
+import com.rushedstudio.domino.domain.User;
 import com.rushedstudio.domino.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
-    private UserMapper userMapper;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
