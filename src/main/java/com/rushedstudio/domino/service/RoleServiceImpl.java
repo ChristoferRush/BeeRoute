@@ -17,8 +17,6 @@ import java.util.stream.Collectors;
 @Service
 public class RoleServiceImpl implements RoleService {
 
-    private RoleMapper roleMapper;
-
     private RoleRepository roleRepository;
 
     @Autowired
@@ -31,20 +29,14 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public RoleListDTO getAllRoles() {
         RoleListDTO dto = new RoleListDTO();
-        List<Role> rolesToMap = roleRepository.findAll();
-        rolesToMap.forEach(role -> System.out.println(role.toString()));
-        List<RoleDTO> roleListDTOS = RoleMapper.INSTANCE.roleListToRoleDTOList(rolesToMap);
-        dto.setRoles(roleListDTOS);
+        dto.setRoles(RoleMapper.INSTANCE.roleListToRoleDTOList(roleRepository.findAll()));
         return dto;
     }
 
     @Override
     public RoleListDTO getRolesByPermission(Permission permission) throws RoleNotFoundException {
         RoleListDTO result = new RoleListDTO();
-        List<RoleDTO> roles;
-        List<Role> rolesToMap = roleRepository.findAllByPermission(permission);
-        roles = RoleMapper.INSTANCE.roleListToRoleDTOList(rolesToMap);
-        result.setRoles(roles);
+        result.setRoles(RoleMapper.INSTANCE.roleListToRoleDTOList(roleRepository.findAllByPermission(permission)));
         return result;
     }
 
@@ -57,7 +49,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public RoleDTO getRoleById(Long roleId) {
-        return roleMapper.INSTANCE.roleToRoleDTO(roleRepository.getOne(roleId));
+        return RoleMapper.INSTANCE.roleToRoleDTO(roleRepository.getOne(roleId));
     }
 
     @Override
