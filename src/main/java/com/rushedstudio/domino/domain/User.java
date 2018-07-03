@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class User {
 
     @Id
-    @SequenceGenerator(name = "user_sequence", sequenceName = "seq_user", allocationSize = 1)
+    @SequenceGenerator(name = "user_sequence", sequenceName = "seq_user_id", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     @Column(name = "id_user")
     private Long id;
