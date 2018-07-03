@@ -1,7 +1,7 @@
 package com.rushedstudio.domino.service;
 
 import com.rushedstudio.domino.api.mapper.RoleMapper;
-import com.rushedstudio.domino.api.model.RoleDTO;
+import com.rushedstudio.domino.api.model.dto.RoleDTO;
 import com.rushedstudio.domino.api.model.list.RoleListDTO;
 import com.rushedstudio.domino.domain.Permission;
 import com.rushedstudio.domino.exception.RoleNotFoundException;

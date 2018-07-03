@@ -1,6 +1,6 @@
 package com.rushedstudio.domino.api.model.list;
 
-import com.rushedstudio.domino.api.model.CountryDTO;
+import com.rushedstudio.domino.api.model.dto.CountryDTO;
 import lombok.Data;
 
 import java.util.List;

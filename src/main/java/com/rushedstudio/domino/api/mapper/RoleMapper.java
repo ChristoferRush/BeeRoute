@@ -1,7 +1,7 @@
 package com.rushedstudio.domino.api.mapper;
 
-import com.rushedstudio.domino.api.model.RoleDTO;
-import com.rushedstudio.domino.api.model.UserDTO;
+import com.rushedstudio.domino.api.model.dto.RoleDTO;
+import com.rushedstudio.domino.api.model.dto.UserDTO;
 import com.rushedstudio.domino.domain.Role;
 import com.rushedstudio.domino.domain.User;
 import org.mapstruct.Mapper;

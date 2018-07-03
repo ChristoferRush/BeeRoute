@@ -1,6 +1,6 @@
 package com.rushedstudio.domino.service;
 
-import com.rushedstudio.domino.api.model.UserDTO;
+import com.rushedstudio.domino.api.model.dto.UserDTO;
 import com.rushedstudio.domino.api.model.list.UserListDTO;
 
 public interface UserService {

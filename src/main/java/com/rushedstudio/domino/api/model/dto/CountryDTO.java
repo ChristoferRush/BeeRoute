@@ -1,4 +1,4 @@
-package com.rushedstudio.domino.api.model;
+package com.rushedstudio.domino.api.model.dto;
 
 import lombok.Data;
 

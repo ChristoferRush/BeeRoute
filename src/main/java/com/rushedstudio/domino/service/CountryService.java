@@ -1,6 +1,6 @@
 package com.rushedstudio.domino.service;
 
-import com.rushedstudio.domino.api.model.CountryDTO;
+import com.rushedstudio.domino.api.model.dto.CountryDTO;
 
 public interface CountryService {
 

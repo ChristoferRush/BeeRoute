@@ -1,6 +1,6 @@
 package com.rushedstudio.domino.api.mapper;
 
-import com.rushedstudio.domino.api.model.PermissionDTO;
+import com.rushedstudio.domino.api.model.dto.PermissionDTO;
 import com.rushedstudio.domino.domain.Permission;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

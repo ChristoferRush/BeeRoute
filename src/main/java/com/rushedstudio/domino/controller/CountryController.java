@@ -1,6 +1,6 @@
 package com.rushedstudio.domino.controller;
 
-import com.rushedstudio.domino.api.model.CountryDTO;
+import com.rushedstudio.domino.api.model.dto.CountryDTO;
 import com.rushedstudio.domino.service.CountryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

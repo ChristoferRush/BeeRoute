@@ -1,6 +1,6 @@
 package com.rushedstudio.domino.controller;
 
-import com.rushedstudio.domino.api.model.RoleDTO;
+import com.rushedstudio.domino.api.model.dto.RoleDTO;
 import com.rushedstudio.domino.api.model.list.RoleListDTO;
 import com.rushedstudio.domino.service.RoleServiceImpl;
 import org.springframework.http.HttpStatus;
