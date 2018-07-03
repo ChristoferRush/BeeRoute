@@ -1,5 +1,6 @@
-package com.rushedstudio.domino.api.model;
+package com.rushedstudio.domino.api.model.list;
 
+import com.rushedstudio.domino.api.model.UserDTO;
 import lombok.Data;
 
 import java.util.List;

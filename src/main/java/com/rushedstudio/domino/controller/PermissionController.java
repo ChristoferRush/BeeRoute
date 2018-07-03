@@ -1,7 +1,7 @@
 package com.rushedstudio.domino.controller;
 
 import com.rushedstudio.domino.api.model.PermissionDTO;
-import com.rushedstudio.domino.api.model.PermissionListDTO;
+import com.rushedstudio.domino.api.model.list.PermissionListDTO;
 import com.rushedstudio.domino.service.PermissionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

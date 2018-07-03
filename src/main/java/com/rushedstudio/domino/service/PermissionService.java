@@ -1,7 +1,7 @@
 package com.rushedstudio.domino.service;
 
 import com.rushedstudio.domino.api.model.PermissionDTO;
-import com.rushedstudio.domino.api.model.PermissionListDTO;
+import com.rushedstudio.domino.api.model.list.PermissionListDTO;
 
 public interface PermissionService {
 

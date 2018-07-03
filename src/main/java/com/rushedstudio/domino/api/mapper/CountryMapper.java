@@ -1,7 +1,7 @@
 package com.rushedstudio.domino.api.mapper;
 
 import com.rushedstudio.domino.api.model.CountryDTO;
-import com.rushedstudio.domino.api.model.CountryListDTO;
+import com.rushedstudio.domino.api.model.list.CountryListDTO;
 import com.rushedstudio.domino.domain.Country;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
