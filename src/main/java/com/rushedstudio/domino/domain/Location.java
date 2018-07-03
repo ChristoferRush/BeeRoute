@@ -27,7 +27,74 @@ public class Location {
     @Column(name = "country")
     private Country country;
 
+    @Column(name = "state")
+    private State state;
 
-    private String state;
+    public Location() {
+    }
 
+    public Location(String streetAddress, String homeNumber, String postalCode, City city, Country country, State state) {
+        this.streetAddress = streetAddress;
+        this.homeNumber = homeNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.country = country;
+        this.state = state;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
+    }
+
+    public String getHomeNumber() {
+        return homeNumber;
+    }
+
+    public void setHomeNumber(String homeNumber) {
+        this.homeNumber = homeNumber;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
 }
