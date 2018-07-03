@@ -1,7 +1,6 @@
 package com.rushedstudio.domino.api.mapper;
 
 import com.rushedstudio.domino.api.model.dto.CountryDTO;
-import com.rushedstudio.domino.api.model.list.CountryListDTO;
 import com.rushedstudio.domino.domain.Country;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -16,5 +15,5 @@ public interface CountryMapper {
 
     CountryDTO countryToCountryDTO(Country country);
 
-    CountryListDTO countryListToCountryListDTO(List<CountryDTO> dto);
+    List<CountryDTO> countryListToCountryListDTO(List<Country> dto);
 }

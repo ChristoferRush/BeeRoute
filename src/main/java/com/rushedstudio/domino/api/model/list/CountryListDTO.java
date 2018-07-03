@@ -8,5 +8,5 @@ import java.util.List;
 @Data
 public class CountryListDTO {
 
-    private List<CountryDTO> countryDTOS;
+    private List<CountryDTO> countries;
 }

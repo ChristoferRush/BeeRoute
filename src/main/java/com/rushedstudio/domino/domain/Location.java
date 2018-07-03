@@ -21,13 +21,13 @@ public class Location {
     @Column(name = "postal_code")
     private String postalCode;
 
-    @Column(name = "city")
+    @ManyToOne
     private City city;
 
-    @Column(name = "country")
+    @ManyToOne
     private Country country;
 
-    @Column(name = "state")
+    @ManyToOne
     private State state;
 
     public Location() {

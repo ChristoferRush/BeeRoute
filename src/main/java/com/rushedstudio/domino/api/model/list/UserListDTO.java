@@ -8,5 +8,5 @@ import java.util.List;
 @Data
 public class UserListDTO {
 
-    private List<UserDTO> userDTOList;
+    private List<UserDTO> users;
 }

@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserListDTO getAllUsers() {
         UserListDTO dto = new UserListDTO();
-        dto.setUserDTOList(UserMapper.INSTANCE.userListToUserDTOList(userRepository.findAll()));
+        dto.setUsers(UserMapper.INSTANCE.userListToUserDTOList(userRepository.findAll()));
         return dto;
     }
 

@@ -22,7 +22,7 @@ public class CountryController {
     @GetMapping(value = "/add")
     @ResponseStatus(HttpStatus.OK)
     public void addCountryList(){
-//        countryService.addCountryList();
+        countryService.addCountryList();
     }
 
     // get
