@@ -2,7 +2,7 @@ package com.rushedstudio.domino.controller;
 
 import com.rushedstudio.domino.api.model.dto.RoleDTO;
 import com.rushedstudio.domino.api.model.list.RoleListDTO;
-import com.rushedstudio.domino.service.RoleServiceImpl;
+import com.rushedstudio.domino.service.impl.RoleServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

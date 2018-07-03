@@ -1,9 +1,10 @@
-package com.rushedstudio.domino.service;
+package com.rushedstudio.domino.service.impl;
 
 import com.rushedstudio.domino.api.mapper.UserMapper;
 import com.rushedstudio.domino.api.model.dto.UserDTO;
 import com.rushedstudio.domino.api.model.list.UserListDTO;
 import com.rushedstudio.domino.repository.UserRepository;
+import com.rushedstudio.domino.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,10 @@
-package com.rushedstudio.domino.service;
+package com.rushedstudio.domino.service.impl;
 
 import com.rushedstudio.domino.api.mapper.CountryMapper;
 import com.rushedstudio.domino.api.model.dto.CountryDTO;
 import com.rushedstudio.domino.domain.Country;
 import com.rushedstudio.domino.repository.CountryRepository;
+import com.rushedstudio.domino.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
