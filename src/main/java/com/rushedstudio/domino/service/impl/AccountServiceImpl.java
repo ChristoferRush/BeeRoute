@@ -1,6 +1,7 @@
 package com.rushedstudio.domino.service.impl;
 
 import com.rushedstudio.domino.api.mapper.AccountMapper;
+import com.rushedstudio.domino.api.mapper.UserMapper;
 import com.rushedstudio.domino.api.model.dto.AccountDTO;
 import com.rushedstudio.domino.api.model.dto.UserDTO;
 import com.rushedstudio.domino.api.model.list.AccountListDTO;
@@ -24,21 +25,23 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountDTO getAccountById(Long id) {
-        return null;
+        return AccountMapper.INSTANCE.accountToAccountDTO(accountRepository.getOne(id));
     }
 
     @Override
     public AccountDTO getAccountByName(String name) {
-        return null;
+        return AccountMapper.INSTANCE.accountToAccountDTO(accountRepository.findByName(name));
     }
 
     @Override
     public AccountDTO getAccountByUser(UserDTO userDTO) {
-        return null;
+        return AccountMapper.INSTANCE.accountToAccountDTO(accountRepository.findByUser(
+                UserMapper.INSTANCE.userDTOToUser(userDTO)
+        ));
     }
 
     @Override
     public AccountDTO getAccountByUserId(Long userId) {
-        return null;
+        return AccountMapper.INSTANCE.accountToAccountDTO(accountRepository.findByUserId(userId));
     }
 }
