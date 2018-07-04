@@ -15,5 +15,10 @@ public interface StateMapper {
 
     StateDTO stateToStateDTO(State state);
 
-    List<StateDTO> stateListToStateDTOList(List<State> states);
+    State stateDTOToState(StateDTO stateDTO);
+
+    List<StateDTO> stateListToStateDTOList(List<State> stateList);
+
+    List<State> stateDTOListToStateList(List<StateDTO> stateDTOList);
+
 }

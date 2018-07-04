@@ -15,5 +15,9 @@ public interface CountryMapper {
 
     CountryDTO countryToCountryDTO(Country country);
 
-    List<CountryDTO> countryListToCountryListDTO(List<Country> dto);
+    Country countryDTOToCountry(CountryDTO countryDTO);
+
+    List<CountryDTO> countryListToCountryDTOList(List<Country> countryList);
+
+    List<Country> countryDTOListToCountryList(List<CountryDTO> countryDTOList);
 }

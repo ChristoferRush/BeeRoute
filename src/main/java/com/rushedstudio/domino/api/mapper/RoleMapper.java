@@ -16,12 +16,11 @@ public interface RoleMapper {
 
     RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
-    @Mapping(source = "users", target = "users")
     RoleDTO roleToRoleDTO(Role role);
 
-    List<RoleDTO> roleListToRoleDTOList(List<Role> roles);
+    Role roleDTOToRole(RoleDTO roleDTO);
 
-    UserDTO userToUserDTO(User user);
+    List<RoleDTO> roleListToRoleDTOList(List<Role> roleList);
 
-    List<UserDTO> userListToUserDTOList(List<User> users);
+    List<Role> roleDTOListToRoleList(List<RoleDTO> roleDTOList);
 }

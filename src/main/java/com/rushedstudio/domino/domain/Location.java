@@ -7,39 +7,19 @@ import javax.persistence.*;
 public class Location {
 
     @Id
-    @SequenceGenerator(name = "location_sequence", sequenceName = "seq_location_id", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_sequence")
+    @SequenceGenerator(name = "loc_location_id_location_seq", sequenceName = "loc_location_id_location_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loc_location_id_location_seq")
     @Column(name = "id_location")
     private Long id;
 
-    @Column(name = "street_address")
-    private String streetAddress;
-
-    @Column(name = "number")
-    private String homeNumber;
-
-    @Column(name = "postal_code")
-    private String postalCode;
-
-    @ManyToOne
-    private City city;
-
-    @ManyToOne
-    private Country country;
-
-    @ManyToOne
-    private State state;
+    @OneToOne
+    private Address address;
 
     public Location() {
     }
 
-    public Location(String streetAddress, String homeNumber, String postalCode, City city, Country country, State state) {
-        this.streetAddress = streetAddress;
-        this.homeNumber = homeNumber;
-        this.postalCode = postalCode;
-        this.city = city;
-        this.country = country;
-        this.state = state;
+    public Location(Address address) {
+        this.address = address;
     }
 
     public Long getId() {
@@ -50,51 +30,11 @@ public class Location {
         this.id = id;
     }
 
-    public String getStreetAddress() {
-        return streetAddress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
-    }
-
-    public String getHomeNumber() {
-        return homeNumber;
-    }
-
-    public void setHomeNumber(String homeNumber) {
-        this.homeNumber = homeNumber;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
-
-    public State getState() {
-        return state;
-    }
-
-    public void setState(State state) {
-        this.state = state;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

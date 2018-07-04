@@ -6,25 +6,17 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "usr_user")
 public class User {
 
     @Id
-    @SequenceGenerator(name = "user_sequence", sequenceName = "seq_user_id", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
+    @SequenceGenerator(name = "usr_user_id_user_seq", sequenceName = "usr_user_id_user_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usr_user_id_user_seq")
     @Column(name = "id_user")
     private Long id;
-
-    @Length(max = 30, message = "username too long")
-    @NotBlank
-    @Column(name = "username")
-    private String username;
-
-    @NotNull
-    @Column(name = "password")
-    private String password;
 
     @NotNull
     @Column(name = "first_name")
@@ -42,16 +34,21 @@ public class User {
     @ManyToOne
     private Role role;
 
+    @OneToOne
+    private Account account;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    private List<UserAddress> userAddressList;
+
     public User() {
     }
 
-    public User(@Length(max = 30, message = "username too long") @NotBlank String username, @NotNull String password, @NotNull String firstName, @NotNull String lastName, @NotNull @Email String email, Role role) {
-        this.username = username;
-        this.password = password;
+    public User(@NotNull String firstName, @NotNull String lastName, @NotNull @Email String email, Role role, Account account) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;
+        this.account = account;
     }
 
     public Long getId() {
@@ -60,22 +57,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getFirstName() {
@@ -108,5 +89,21 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public List<UserAddress> getUserAddressList() {
+        return userAddressList;
+    }
+
+    public void setUserAddressList(List<UserAddress> userAddressList) {
+        this.userAddressList = userAddressList;
     }
 }

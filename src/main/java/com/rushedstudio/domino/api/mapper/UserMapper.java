@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
@@ -15,5 +16,9 @@ public interface UserMapper {
 
     UserDTO userToUserDTO(User user);
 
+    User userDTOToUser(UserDTO userDTO);
+
     List<UserDTO> userListToUserDTOList(List<User> users);
+
+    List<User> userDTOListToUserList(List<UserDTO> userDTOList);
 }

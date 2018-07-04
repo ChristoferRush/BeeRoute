@@ -11,34 +11,30 @@ import java.util.List;
 public class Country {
 
     @Id
-    @SequenceGenerator(name = "country_sequence", sequenceName = "seq_country_id", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "country_sequence")
-    @Column(name = "country_id")
+    @SequenceGenerator(name = "loc_country_id_country_seq", sequenceName = "loc_country_id_country_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loc_country_id_country_seq")
+    @Column(name = "id_country")
     private Short id;
 
     @NotNull
-    @Column(name = "country_iso")
+    @Column(name = "iso")
     private String iso;
 
     @NotNull
-    @Column(name = "country_code")
+    @Column(name = "code")
     private String code;
 
     @NotNull
-    @Column(name = "country_name")
+    @Column(name = "name")
     private String name;
 
     @JsonIgnore
     @OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<State> states;
+    private List<State> stateList;
 
     @JsonIgnore
     @OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<City> cities;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<Location> locations;
+    private List<City> cityList;
 
     public Country() {
     }
@@ -57,6 +53,14 @@ public class Country {
         this.id = id;
     }
 
+    public String getIso() {
+        return iso;
+    }
+
+    public void setIso(String iso) {
+        this.iso = iso;
+    }
+
     public String getCode() {
         return code;
     }
@@ -73,36 +77,20 @@ public class Country {
         this.name = name;
     }
 
-    public String getIso() {
-        return iso;
+    public List<State> getStateList() {
+        return stateList;
     }
 
-    public void setIso(String iso) {
-        this.iso = iso;
+    public void setStateList(List<State> stateList) {
+        this.stateList = stateList;
     }
 
-    public List<State> getStates() {
-        return states;
+    public List<City> getCityList() {
+        return cityList;
     }
 
-    public void setStates(List<State> states) {
-        this.states = states;
-    }
-
-    public List<City> getCities() {
-        return cities;
-    }
-
-    public void setCities(List<City> cities) {
-        this.cities = cities;
-    }
-
-    public List<Location> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(List<Location> locations) {
-        this.locations = locations;
+    public void setCityList(List<City> cityList) {
+        this.cityList = cityList;
     }
 
     public String toString() {

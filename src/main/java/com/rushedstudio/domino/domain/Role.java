@@ -16,8 +16,8 @@ import java.util.List;
 public class Role {
 
     @Id
-    @SequenceGenerator(name = "role_sequence", sequenceName = "seq_role_id", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_sequence")
+    @SequenceGenerator(name = "usr_role_id_role_seq", sequenceName = "usr_role_id_role_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usr_role_id_role_seq")
     @Column(name = "id_role")
     private Long id;
 
@@ -25,17 +25,17 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<User> users;
-
     @ManyToOne
     private Permission permission;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    private List<User> userList;
 
     public Role() {
     }
 
-    public Role(@NotNull String name, @NotNull Permission permission) {
+    public Role(@NotNull String name, Permission permission) {
         this.name = name;
         this.permission = permission;
     }
@@ -56,19 +56,19 @@ public class Role {
         this.name = name;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
     public Permission getPermission() {
         return permission;
     }
 
     public void setPermission(Permission permission) {
         this.permission = permission;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 }

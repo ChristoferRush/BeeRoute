@@ -10,9 +10,9 @@ import java.util.List;
 public class State {
 
     @Id
-    @SequenceGenerator(name = "state_sequence", sequenceName = "seq_state_id", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "state_sequence")
-    @Column(name = "state_id")
+    @SequenceGenerator(name = "loc_state_id_state_seq", sequenceName = "loc_state_id_state_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loc_state_id_state_seq")
+    @Column(name = "id_state")
     private Long id;
 
     @Column(name = "name")
@@ -23,11 +23,7 @@ public class State {
 
     @JsonIgnore
     @OneToMany(mappedBy = "state", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<City> cities;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "state", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<Location> locations;
+    private List<City> cityList;
 
     public State() {
     }
@@ -35,13 +31,6 @@ public class State {
     public State(String name, Country country) {
         this.name = name;
         this.country = country;
-    }
-
-    public State(String name, Country country, List<City> cities, List<Location> locations) {
-        this.name = name;
-        this.country = country;
-        this.cities = cities;
-        this.locations = locations;
     }
 
     public Long getId() {
@@ -68,19 +57,11 @@ public class State {
         this.country = country;
     }
 
-    public List<City> getCities() {
-        return cities;
+    public List<City> getCityList() {
+        return cityList;
     }
 
-    public void setCities(List<City> cities) {
-        this.cities = cities;
-    }
-
-    public List<Location> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(List<Location> locations) {
-        this.locations = locations;
+    public void setCityList(List<City> cityList) {
+        this.cityList = cityList;
     }
 }

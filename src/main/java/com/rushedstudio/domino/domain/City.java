@@ -1,7 +1,5 @@
 package com.rushedstudio.domino.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,9 +8,9 @@ import java.util.List;
 public class City {
 
     @Id
-    @SequenceGenerator(name = "city_sequence", sequenceName = "seq_city_id", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_sequence")
-    @Column(name = "city_id")
+    @SequenceGenerator(name = "loc_city_id_city_seq", sequenceName = "loc_city_id_city_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loc_city_id_city_seq")
+    @Column(name = "id_city")
     private Long id;
 
     @Column(name = "name")
@@ -24,24 +22,16 @@ public class City {
     @ManyToOne
     private State state;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "city", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<Location> locations;
+    private List<Address> addressList;
 
     public City() {
     }
 
-    public City(String name, State state, Country country) {
-        this.name = name;
-        this.state = state;
-        this.country = country;
-    }
-
-    public City(String name, Country country, State state, List<Location> locations) {
+    public City(String name, Country country, State state) {
         this.name = name;
         this.country = country;
         this.state = state;
-        this.locations = locations;
     }
 
     public Long getId() {
@@ -60,14 +50,6 @@ public class City {
         this.name = name;
     }
 
-    public State getState() {
-        return state;
-    }
-
-    public void setState(State state) {
-        this.state = state;
-    }
-
     public Country getCountry() {
         return country;
     }
@@ -76,11 +58,19 @@ public class City {
         this.country = country;
     }
 
-    public List<Location> getLocations() {
-        return locations;
+    public State getState() {
+        return state;
     }
 
-    public void setLocations(List<Location> locations) {
-        this.locations = locations;
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public List<Address> getAddressList() {
+        return addressList;
+    }
+
+    public void setAddressList(List<Address> addressList) {
+        this.addressList = addressList;
     }
 }

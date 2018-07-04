@@ -2,9 +2,10 @@ package com.rushedstudio.domino.api.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rushedstudio.domino.api.model.list.CityListDTO;
-import com.rushedstudio.domino.api.model.list.LocationListDTO;
 import com.rushedstudio.domino.api.model.list.StateListDTO;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class CountryDTO {
@@ -14,9 +15,7 @@ public class CountryDTO {
     private String code;
     private String name;
     @JsonIgnore
-    private StateListDTO states;
+    private List<StateDTO> stateList;
     @JsonIgnore
-    private CityListDTO cities;
-    @JsonIgnore
-    private LocationListDTO locations;
+    private List<CityDTO> cityList;
 }
