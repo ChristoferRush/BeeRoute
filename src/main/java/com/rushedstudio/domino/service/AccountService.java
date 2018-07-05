@@ -2,11 +2,12 @@ package com.rushedstudio.domino.service;
 
 import com.rushedstudio.domino.api.model.dto.AccountDTO;
 import com.rushedstudio.domino.api.model.dto.UserDTO;
-import com.rushedstudio.domino.api.model.list.AccountListDTO;
+
+import java.util.List;
 
 public interface AccountService {
 
-    AccountListDTO getAllAccounts();
+    List<AccountDTO> getAllAccounts();
 
     AccountDTO getAccountById(Long id);
 

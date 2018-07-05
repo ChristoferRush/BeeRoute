@@ -1,7 +1,10 @@
 package com.rushedstudio.domino.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "usr_account")
 public class Account {

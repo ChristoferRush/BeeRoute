@@ -9,16 +9,26 @@ import org.mapstruct.factory.Mappers;
 import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {
+//        UserMapper.class,
+        RoleMapper.class,
+        AccountMapper.class,
+        AddressMapper.class,
+        CityMapper.class,
+        CountryMapper.class,
+        LocationMapper.class,
+        StateMapper.class,
+        UserAddressMapper.class
+})
 public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    UserDTO userToUserDTO(User user);
+    UserDTO toUserDTO(User user);
 
-    User userDTOToUser(UserDTO userDTO);
+    User toUser(UserDTO userDTO);
 
-    List<UserDTO> userListToUserDTOList(List<User> users);
+    List<UserDTO> toUserDTOList(List<User> users);
 
-    List<User> userDTOListToUserList(List<UserDTO> userDTOList);
+    List<User> toUserList(List<UserDTO> userDTOList);
 }

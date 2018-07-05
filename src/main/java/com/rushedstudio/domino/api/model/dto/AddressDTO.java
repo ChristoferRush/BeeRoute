@@ -1,7 +1,6 @@
 package com.rushedstudio.domino.api.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.rushedstudio.domino.api.model.list.UserAddressListDTO;
 import lombok.Data;
 
 import java.util.List;

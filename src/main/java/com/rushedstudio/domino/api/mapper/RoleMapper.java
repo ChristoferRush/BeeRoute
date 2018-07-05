@@ -4,23 +4,33 @@ import com.rushedstudio.domino.api.model.dto.RoleDTO;
 import com.rushedstudio.domino.api.model.dto.UserDTO;
 import com.rushedstudio.domino.domain.Role;
 import com.rushedstudio.domino.domain.User;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.ReportingPolicy;
+import com.rushedstudio.domino.tool.CycleAvoidingMappingContext;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {
+        UserMapper.class,
+//        RoleMapper.class,
+        AccountMapper.class,
+        AddressMapper.class,
+        CityMapper.class,
+        CountryMapper.class,
+        LocationMapper.class,
+        StateMapper.class,
+        UserAddressMapper.class
+})
 public interface RoleMapper {
 
     RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
-    RoleDTO roleToRoleDTO(Role role);
+//    @Mapping(source = "userList", target = "userList")
+    abstract RoleDTO toRoleDTO(Role role);//, @Context CycleAvoidingMappingContext context);
 
-    Role roleDTOToRole(RoleDTO roleDTO);
+    abstract Role toRole(RoleDTO roleDTO);//, @Context CycleAvoidingMappingContext context);
 
-    List<RoleDTO> roleListToRoleDTOList(List<Role> roleList);
+    abstract List<RoleDTO> toRoleDTOList(List<Role> roleList);
 
-    List<Role> roleDTOListToRoleList(List<RoleDTO> roleDTOList);
+    abstract List<Role> toRoleList(List<RoleDTO> roleDTOList);
 }

@@ -46,6 +46,7 @@ dependencies {
 
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
 
+    compile group: 'org.mapstruct', name: 'mapstruct', version: '1.2.0.Final'
     compile group: 'org.mapstruct', name: 'mapstruct-jdk8', version: '1.2.0.Final'
     compile group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.2.0.Final'
 

@@ -9,17 +9,27 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {
+        UserMapper.class,
+        RoleMapper.class,
+        AccountMapper.class,
+        AddressMapper.class,
+//        CityMapper.class,
+        CountryMapper.class,
+        LocationMapper.class,
+        StateMapper.class,
+        UserAddressMapper.class
+})
 public interface CityMapper {
 
     CityMapper INSTANCE = Mappers.getMapper(CityMapper.class);
 
     @Mapping(source = "state", target = "state")
-    CityDTO cityToCityDTO(City city);
+    CityDTO toCityDTO(City city);
 
-    City cityDTOToCity(CityDTO cityDTO);
+    City toCity(CityDTO cityDTO);
 
-    List<CityDTO> cityDTOListToCity(List<City> cities);
+    List<CityDTO> toCity(List<City> cities);
 
-    List<City> cityDTOListToCityList(List<CityDTO> cityDTOList);
+    List<City> toCityList(List<CityDTO> cityDTOList);
 }

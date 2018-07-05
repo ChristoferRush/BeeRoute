@@ -8,16 +8,26 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {
+        UserMapper.class,
+        RoleMapper.class,
+        AccountMapper.class,
+        AddressMapper.class,
+        CityMapper.class,
+        CountryMapper.class,
+        LocationMapper.class,
+        StateMapper.class,
+        UserAddressMapper.class
+})
 public interface PermissionMapper {
 
     PermissionMapper INSTANCE = Mappers.getMapper(PermissionMapper.class);
 
-    PermissionDTO permissionToPermissionDTO(Permission permission);
+    PermissionDTO toPermissionDTO(Permission permission);
 
-    Permission permissionDTOToPermission(PermissionDTO permissionDTO);
+    Permission toPermission(PermissionDTO permissionDTO);
 
-    List<PermissionDTO> permissionListToPermissionDTOList(List<Permission> permissionList);
+    List<PermissionDTO> toPermissionDTOList(List<Permission> permissionList);
 
-    List<Permission> permissionDTOListToPermissionList(List<PermissionDTO> permissionDTOList);
+    List<Permission> toPermissionList(List<PermissionDTO> permissionDTOList);
 }

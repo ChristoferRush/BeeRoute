@@ -1,14 +1,12 @@
 package com.rushedstudio.domino.api.model.list;
 
 import com.rushedstudio.domino.api.model.dto.AccountDTO;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-public class AccountListDTO {
+public class AccountDTOList {
 
     private List<AccountDTO> accountDTOList;
 }

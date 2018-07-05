@@ -8,16 +8,26 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {
+        UserMapper.class,
+        RoleMapper.class,
+        AccountMapper.class,
+//        AddressMapper.class,
+        CityMapper.class,
+        CountryMapper.class,
+        LocationMapper.class,
+        StateMapper.class,
+        UserAddressMapper.class
+})
 public interface AddressMapper {
 
     AddressMapper INSTANCE = Mappers.getMapper(AddressMapper.class);
 
-    AddressDTO addressToAddressDTO(Address address);
+    AddressDTO toAddressDTO(Address address);
 
-    Address addressDTOToAddress(AddressDTO addressDTO);
+    Address toAddress(AddressDTO addressDTO);
 
-    List<AddressDTO> addressListToAddressDTOList(List<Address> addressList);
+    List<AddressDTO> toAddressDTOList(List<Address> addressList);
 
-    List<Address> addressDTOListToAddressList(List<AddressDTO> addressDTOList);
+    List<Address> toAddressList(List<AddressDTO> addressDTOList);
 }

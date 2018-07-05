@@ -1,14 +1,12 @@
 package com.rushedstudio.domino.api.model.list;
 
 import com.rushedstudio.domino.api.model.dto.LocationDTO;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-public class LocationListDTO {
+public class LocationDTOList {
 
-    private List<LocationDTO> locations;
+    private List<LocationDTO> locationDTOList;
 }
