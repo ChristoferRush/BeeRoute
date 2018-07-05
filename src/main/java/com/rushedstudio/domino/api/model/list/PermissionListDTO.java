@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class PermissionDTOList {
+public class PermissionListDTO {
 
     private List<PermissionDTO> permissionDTOList;
 }

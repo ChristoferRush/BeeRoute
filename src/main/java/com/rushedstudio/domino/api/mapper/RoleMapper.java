@@ -25,12 +25,11 @@ public interface RoleMapper {
 
     RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
-//    @Mapping(source = "userList", target = "userList")
-    abstract RoleDTO toRoleDTO(Role role);//, @Context CycleAvoidingMappingContext context);
+    RoleDTO toRoleDTO(Role role);
 
-    abstract Role toRole(RoleDTO roleDTO);//, @Context CycleAvoidingMappingContext context);
+    Role toRole(RoleDTO roleDTO);
 
-    abstract List<RoleDTO> toRoleDTOList(List<Role> roleList);
+    List<RoleDTO> toRoleDTOList(List<Role> roleList);
 
-    abstract List<Role> toRoleList(List<RoleDTO> roleDTOList);
+    List<Role> toRoleList(List<RoleDTO> roleDTOList);
 }

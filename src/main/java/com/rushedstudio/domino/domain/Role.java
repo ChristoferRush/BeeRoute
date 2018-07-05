@@ -25,8 +25,8 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-//    @ManyToOne
-//    private Permission permission;
+    @ManyToOne
+    private Permission permission;
 
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private List<User> userList;
@@ -34,10 +34,10 @@ public class Role {
     public Role() {
     }
 
-//    public Role(@NotNull String name, Permission permission) {
-//        this.name = name;
-//        this.permission = permission;
-//    }
+    public Role(@NotNull String name, Permission permission) {
+        this.name = name;
+        this.permission = permission;
+    }
 
     public Long getId() {
         return id;
@@ -55,13 +55,13 @@ public class Role {
         this.name = name;
     }
 
-//    public Permission getPermission() {
-//        return permission;
-//    }
-//
-//    public void setPermission(Permission permission) {
-//        this.permission = permission;
-//    }
+    public Permission getPermission() {
+        return permission;
+    }
+
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
 
     public List<User> getUserList() {
         return userList;

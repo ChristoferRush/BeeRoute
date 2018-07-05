@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class LocationDTOList {
+public class LocationListDTO {
 
     private List<LocationDTO> locationDTOList;
 }

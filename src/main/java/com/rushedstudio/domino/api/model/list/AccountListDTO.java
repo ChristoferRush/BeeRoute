@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class AccountDTOList {
+public class AccountListDTO {
 
     private List<AccountDTO> accountDTOList;
 }
