@@ -25,11 +25,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<AccountDto> getAllAccounts() {
-        List<AccountDto> accountDtos;
-        List<Account> accountList;
-        accountList = accountRepository.findAll();
-        accountDtos = AccountMapper.INSTANCE.toAccountDTOList(accountList);
-        return accountDtos;
+        return AccountMapper.INSTANCE.toAccountDTOList(accountRepository.findAll());
     }
 
     @Override
