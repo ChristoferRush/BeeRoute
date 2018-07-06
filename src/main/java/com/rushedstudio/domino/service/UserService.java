@@ -1,12 +1,12 @@
 package com.rushedstudio.domino.service;
 
-import com.rushedstudio.domino.api.model.dto.UserDTO;
+import com.rushedstudio.domino.api.model.UserDto;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<UserDTO> getAllUsers();
+    List<UserDto> getAllUsers();
 
-    UserDTO getUserById(Long id);
+    UserDto getUserById(Long id);
 }

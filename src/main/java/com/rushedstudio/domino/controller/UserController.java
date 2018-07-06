@@ -1,6 +1,6 @@
 package com.rushedstudio.domino.controller;
 
-import com.rushedstudio.domino.api.model.dto.UserDTO;
+import com.rushedstudio.domino.api.model.UserDto;
 import com.rushedstudio.domino.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class UserController {
 
     @GetMapping(value = "/all")
     @ResponseStatus(HttpStatus.OK)
-    public List<UserDTO> getAllUsers(){
+    public List<UserDto> getAllUsers(){
         return userService.getAllUsers();
     }
 }

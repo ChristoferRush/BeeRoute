@@ -1,7 +1,7 @@
 package com.rushedstudio.domino.service.impl;
 
 import com.rushedstudio.domino.api.mapper.UserMapper;
-import com.rushedstudio.domino.api.model.dto.UserDTO;
+import com.rushedstudio.domino.api.model.UserDto;
 import com.rushedstudio.domino.repository.UserRepository;
 import com.rushedstudio.domino.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +20,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getAllUsers() {
+    public List<UserDto> getAllUsers() {
         return UserMapper.INSTANCE.toUserDTOList(userRepository.findAll());
     }
 
     @Override
-    public UserDTO getUserById(Long id) {
+    public UserDto getUserById(Long id) {
         return UserMapper.INSTANCE.toUserDTO(userRepository.getOne(id));
     }
 }

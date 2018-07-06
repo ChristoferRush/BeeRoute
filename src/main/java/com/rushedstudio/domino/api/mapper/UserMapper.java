@@ -1,34 +1,26 @@
 package com.rushedstudio.domino.api.mapper;
 
-import com.rushedstudio.domino.api.model.dto.UserDTO;
+import com.rushedstudio.domino.api.model.UserDto;
 import com.rushedstudio.domino.domain.User;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {
-//        UserMapper.class,
-        RoleMapper.class,
-        AccountMapper.class,
-        AddressMapper.class,
-        CityMapper.class,
-        CountryMapper.class,
-        LocationMapper.class,
-        StateMapper.class,
-        UserAddressMapper.class
-})
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    UserDTO toUserDTO(User user);
+    @Mapping(source = "account.id", target = "accountId")
+    UserDto toUserDTO(User user);
 
-    User toUser(UserDTO userDTO);
+    @Mapping(source = "accountId", target = "account.id")
+    User toUser(UserDto userDto);
 
-    List<UserDTO> toUserDTOList(List<User> users);
+    List<UserDto> toUserDTOList(List<User> users);
 
-    List<User> toUserList(List<UserDTO> userDTOList);
+    List<User> toUserList(List<UserDto> userDtoList);
 }

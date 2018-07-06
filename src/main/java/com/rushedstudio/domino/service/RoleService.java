@@ -1,11 +1,12 @@
 package com.rushedstudio.domino.service;
 
-import com.rushedstudio.domino.api.model.dto.RoleDTO;
-import com.rushedstudio.domino.api.model.list.RoleListDTO;
+import com.rushedstudio.domino.api.model.RoleDto;
+
+import java.util.List;
 
 public interface RoleService {
 
-    RoleListDTO getAllRoles();
+    List<RoleDto> getAllRoles();
 
-    RoleDTO getRoleById(Long id);
+    RoleDto getRoleById(Long id);
 }

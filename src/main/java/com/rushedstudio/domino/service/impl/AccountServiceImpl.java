@@ -1,8 +1,9 @@
 package com.rushedstudio.domino.service.impl;
 
 import com.rushedstudio.domino.api.mapper.AccountMapper;
-import com.rushedstudio.domino.api.model.dto.AccountDTO;
-import com.rushedstudio.domino.api.model.dto.UserDTO;
+import com.rushedstudio.domino.api.mapper.UserMapper;
+import com.rushedstudio.domino.api.model.AccountDto;
+import com.rushedstudio.domino.api.model.UserDto;
 import com.rushedstudio.domino.domain.Account;
 import com.rushedstudio.domino.repository.AccountRepository;
 import com.rushedstudio.domino.service.AccountService;
@@ -23,34 +24,33 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AccountDTO> getAllAccounts() {
-        List<AccountDTO> accountDTOS = new ArrayList<>();
-        List<Account> accountList = new ArrayList<>();
+    public List<AccountDto> getAllAccounts() {
+        List<AccountDto> accountDtos;
+        List<Account> accountList;
         accountList = accountRepository.findAll();
-        accountDTOS = AccountMapper.INSTANCE.toAccountDTOList(accountList);
-        return accountDTOS;
+        accountDtos = AccountMapper.INSTANCE.toAccountDTOList(accountList);
+        return accountDtos;
     }
 
     @Override
-    public AccountDTO getAccountById(Long id) {
+    public AccountDto getAccountById(Long id) {
         return AccountMapper.INSTANCE.toAccountDTO(accountRepository.getOne(id));
     }
 
     @Override
-    public AccountDTO getAccountByName(String name) {
+    public AccountDto getAccountByName(String name) {
         return AccountMapper.INSTANCE.toAccountDTO(accountRepository.findByName(name));
     }
 
     @Override
-    public AccountDTO getAccountByUser(UserDTO userDTO) {
-//        return Mapper.INSTANCE.toAccountDTO(accountRepository.findByUser(
-//                userDTO
-//        ));
-        return null;
+    public AccountDto getAccountByUser(UserDto userDto) {
+        return AccountMapper.INSTANCE.toAccountDTO(accountRepository.findByUser(
+                UserMapper.INSTANCE.toUser(userDto)
+        ));
     }
 
     @Override
-    public AccountDTO getAccountByUserId(Long userId) {
+    public AccountDto getAccountByUserId(Long userId) {
         return AccountMapper.INSTANCE.toAccountDTO(accountRepository.findByUserId(userId));
     }
 }

@@ -1,6 +1,6 @@
 package com.rushedstudio.domino.api.mapper;
 
-import com.rushedstudio.domino.api.model.dto.PermissionDTO;
+import com.rushedstudio.domino.api.model.PermissionDto;
 import com.rushedstudio.domino.domain.Permission;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -8,26 +8,16 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {
-        UserMapper.class,
-        RoleMapper.class,
-        AccountMapper.class,
-        AddressMapper.class,
-        CityMapper.class,
-        CountryMapper.class,
-        LocationMapper.class,
-        StateMapper.class,
-        UserAddressMapper.class
-})
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PermissionMapper {
 
     PermissionMapper INSTANCE = Mappers.getMapper(PermissionMapper.class);
 
-    PermissionDTO toPermissionDTO(Permission permission);
+    PermissionDto toPermissionDTO(Permission permission);
 
-    Permission toPermission(PermissionDTO permissionDTO);
+    Permission toPermission(PermissionDto permissionDto);
 
-    List<PermissionDTO> toPermissionDTOList(List<Permission> permissionList);
+    List<PermissionDto> toPermissionDTOList(List<Permission> permissionList);
 
-    List<Permission> toPermissionList(List<PermissionDTO> permissionDTOList);
+    List<Permission> toPermissionList(List<PermissionDto> permissionDtoList);
 }

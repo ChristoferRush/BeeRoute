@@ -1,28 +1,28 @@
 package com.rushedstudio.domino.service;
 
-import com.rushedstudio.domino.api.model.dto.CityDTO;
-import com.rushedstudio.domino.api.model.dto.CountryDTO;
-import com.rushedstudio.domino.api.model.dto.StateDTO;
+import com.rushedstudio.domino.api.model.CityDto;
+import com.rushedstudio.domino.api.model.CountryDto;
+import com.rushedstudio.domino.api.model.StateDto;
 
 import java.util.List;
 
 public interface CountryService {
 
-    List<CountryDTO> getAllCountries();
+    List<CountryDto> getAllCountries();
 
-    CountryDTO getCountryById(Short id);
+    CountryDto getCountryById(Short id);
 
-    CountryDTO getCountryByIso(String iso);
+    CountryDto getCountryByIso(String iso);
 
-    CountryDTO getCountryByCode(String code);
+    CountryDto getCountryByCode(String code);
 
-    CountryDTO getCountryByName(String name);
+    CountryDto getCountryByName(String name);
 
-    CountryDTO getCountryByState(StateDTO stateDTO);
+    CountryDto getCountryByState(StateDto stateDto);
 
-    CountryDTO getCountryByStateId(Long stateId);
+    CountryDto getCountryByStateId(Long stateId);
 
-    CountryDTO getCountryByCity(CityDTO cityDTO);
+    CountryDto getCountryByCity(CityDto cityDto);
 
-    CountryDTO getCountryByCityId(Long cityId);
+    CountryDto getCountryByCityId(Long cityId);
 }

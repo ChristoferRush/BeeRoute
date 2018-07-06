@@ -1,9 +1,9 @@
 package com.rushedstudio.domino.service.impl;
 
 import com.rushedstudio.domino.api.mapper.CountryMapper;
-import com.rushedstudio.domino.api.model.dto.CityDTO;
-import com.rushedstudio.domino.api.model.dto.CountryDTO;
-import com.rushedstudio.domino.api.model.dto.StateDTO;
+import com.rushedstudio.domino.api.model.CityDto;
+import com.rushedstudio.domino.api.model.CountryDto;
+import com.rushedstudio.domino.api.model.StateDto;
 import com.rushedstudio.domino.repository.CountryRepository;
 import com.rushedstudio.domino.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,47 +22,47 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<CountryDTO> getAllCountries() {
+    public List<CountryDto> getAllCountries() {
         return null;
     }
 
     @Override
-    public CountryDTO getCountryById(Short id) {
+    public CountryDto getCountryById(Short id) {
         return CountryMapper.INSTANCE.toCountryDTO(countryRepository.getOne(id));
     }
 
     @Override
-    public CountryDTO getCountryByIso(String iso) {
+    public CountryDto getCountryByIso(String iso) {
         return CountryMapper.INSTANCE.toCountryDTO(countryRepository.findByIso(iso));
     }
 
     @Override
-    public CountryDTO getCountryByCode(String code) {
+    public CountryDto getCountryByCode(String code) {
         return CountryMapper.INSTANCE.toCountryDTO(countryRepository.findByCode(code));
     }
 
     @Override
-    public CountryDTO getCountryByName(String name) {
+    public CountryDto getCountryByName(String name) {
         return CountryMapper.INSTANCE.toCountryDTO(countryRepository.findByName(name));
     }
 
     @Override
-    public CountryDTO getCountryByState(StateDTO stateDTO) {
+    public CountryDto getCountryByState(StateDto stateDto) {
         return null;
     }
 
     @Override
-    public CountryDTO getCountryByStateId(Long stateId) {
+    public CountryDto getCountryByStateId(Long stateId) {
         return null;
     }
 
     @Override
-    public CountryDTO getCountryByCity(CityDTO cityDTO) {
+    public CountryDto getCountryByCity(CityDto cityDto) {
         return null;
     }
 
     @Override
-    public CountryDTO getCountryByCityId(Long cityId) {
+    public CountryDto getCountryByCityId(Long cityId) {
         return null;
     }
 }
