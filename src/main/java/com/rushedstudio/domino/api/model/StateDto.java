@@ -12,6 +12,6 @@ public class StateDto {
     private Long id;
     private String name;
     @JsonIgnoreProperties({"stateList"})
-    private CountryDto country;
+    private Short countryId;
     private List<CityDto> cityList;
 }
