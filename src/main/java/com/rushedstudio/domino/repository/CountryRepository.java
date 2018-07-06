@@ -1,5 +1,6 @@
 package com.rushedstudio.domino.repository;
 
+import com.rushedstudio.domino.domain.City;
 import com.rushedstudio.domino.domain.Country;
 import com.rushedstudio.domino.domain.State;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,4 +16,8 @@ public interface CountryRepository extends JpaRepository<Country, Short> {
     Country findByCode(String countryCode);
 
     Country findByIso(String countryIso);
+
+    Country findByStateListIsContaining(State state);
+
+    Country findByCityListIsContaining(City city);
 }
