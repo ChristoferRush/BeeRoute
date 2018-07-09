@@ -4,7 +4,6 @@ import com.rushedstudio.domino.api.mapper.PermissionMapper;
 import com.rushedstudio.domino.api.mapper.RoleMapper;
 import com.rushedstudio.domino.api.model.PermissionDto;
 import com.rushedstudio.domino.api.model.RoleDto;
-import com.rushedstudio.domino.domain.Role;
 import com.rushedstudio.domino.repository.PermissionRepository;
 import com.rushedstudio.domino.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;

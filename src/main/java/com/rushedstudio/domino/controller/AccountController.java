@@ -2,7 +2,6 @@ package com.rushedstudio.domino.controller;
 
 import com.rushedstudio.domino.api.model.AccountDto;
 import com.rushedstudio.domino.api.model.UserDto;
-import com.rushedstudio.domino.domain.User;
 import com.rushedstudio.domino.service.impl.AccountServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -9,13 +9,13 @@ public interface RoleService {
 
     List<RoleDto> getAllRoles();
 
-    RoleDto getRoleById(Long id);
-
-    RoleDto getRoleByName(String name);
-
     List<RoleDto> getRolesByPermission(PermissionDto permissionDto);
 
     List<RoleDto> getRolesByPermissionId(Long permissionId);
 
     List<RoleDto> getRolesByPermissionName(String permissionName);
+
+    RoleDto getRoleById(Long id);
+
+    RoleDto getRoleByName(String name);
 }

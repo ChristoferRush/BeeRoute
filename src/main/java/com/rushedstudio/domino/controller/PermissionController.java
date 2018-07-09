@@ -40,7 +40,7 @@ public class PermissionController {
         return permissionService.getPermissionByName(name);
     }
 
-    @GetMapping("/role:{role}")
+    @GetMapping("/role:{roleDto}")
     @ResponseStatus(HttpStatus.OK)
     public PermissionDto getPermissionByRole(@PathVariable RoleDto roleDto){
         return permissionService.getPermissionByRole(roleDto);

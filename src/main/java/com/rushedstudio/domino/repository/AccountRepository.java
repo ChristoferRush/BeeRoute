@@ -14,6 +14,5 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     Account findByUser(User user);
 
-    @Query("SELECT a FROM Account a where a.user.id = :id")
-    Account findByUserId(@Param("id") Long userId);
+    Account findByUserId(Long userId);
 }

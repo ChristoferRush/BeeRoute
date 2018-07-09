@@ -53,7 +53,7 @@ public class CountryController {
         return countryService.getCountryByName(name);
     }
 
-    @GetMapping(value = "/state:{state}")
+    @GetMapping(value = "/state:{stateDto}")
     @ResponseStatus(HttpStatus.OK)
     public CountryDto getCountryByState(@PathVariable StateDto stateDto){
         return countryService.getCountryByState(stateDto);
@@ -65,7 +65,7 @@ public class CountryController {
         return countryService.getCountryByStateId(stateId);
     }
 
-    @GetMapping(value = "/city:{city}")
+    @GetMapping(value = "/city:{cityDto}")
     @ResponseStatus(HttpStatus.OK)
     public CountryDto getCountryByCity(@PathVariable CityDto cityDto){
         return countryService.getCountryByCity(cityDto);

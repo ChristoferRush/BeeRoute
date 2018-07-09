@@ -46,8 +46,8 @@ public class CityController {
 
     @GetMapping(value = "/state:{state}")
     @ResponseStatus(HttpStatus.OK)
-    public List<CityDto> getCitiesByState(@PathVariable StateDto stateDto){
-        return cityService.getCitiesByState(stateDto);
+    public List<CityDto> getCitiesByState(@PathVariable StateDto state){
+        return cityService.getCitiesByState(state);
     }
 
     @GetMapping(value = "/stateId:{stateId}")
@@ -58,8 +58,8 @@ public class CityController {
 
     @GetMapping(value = "/country:{country}")
     @ResponseStatus(HttpStatus.OK)
-    public List<CityDto> getCitiesByCountry(@PathVariable CountryDto countryDto){
-        return cityService.getCitiesByCountry(countryDto);
+    public List<CityDto> getCitiesByCountry(@PathVariable CountryDto country){
+        return cityService.getCitiesByCountry(country);
     }
 
     @GetMapping(value = "/countryId:{countryId}")
@@ -70,7 +70,7 @@ public class CityController {
 
     @GetMapping(value = "/address:{address}")
     @ResponseStatus(HttpStatus.OK)
-    public CityDto getCityByAddress(@PathVariable AddressDto addressDto){
-        return cityService.getCityByAddress(addressDto);
+    public CityDto getCityByAddress(@PathVariable AddressDto address){
+        return cityService.getCityByAddress(address);
     }
 }
