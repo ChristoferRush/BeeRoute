@@ -23,6 +23,7 @@ apply plugin: 'war'
 group = 'com.rushedstudio'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+war.baseName = 'beeRoute'
 
 repositories {
     mavenCentral()
